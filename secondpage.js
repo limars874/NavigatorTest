@@ -34,11 +34,7 @@ export default class Secondpage extends Component {
         const { navigator } = this.props;
         if (navigator) {
             navigator.push({
-                name: 'thirdpage',
                 component: Thirdpage,
-                params: {
-                    info: 'from firstpage',
-                }
             })
         }
 

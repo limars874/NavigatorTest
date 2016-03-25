@@ -19,21 +19,13 @@ export default class Firstpage extends Component {
 
     constructor(props){
         super(props);
-        this.state = {
-           id:1,
-        };
-
     }
 
     gotoSecond(){
         const { navigator } = this.props;
         if(navigator){
             navigator.push({
-                name:'secondpage',
                 component:Secondpage,
-                params:{
-                    info:'from firstpage',
-                }
             })
         }
     }
@@ -43,7 +35,6 @@ export default class Firstpage extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.center}>first page</Text>
-
                 <TouchableOpacity style={[styles.buttonstyle,{borderColor:'red'}]} onPress={()=>this.gotoSecond()}>
                     <Text>go to second</Text>
                 </TouchableOpacity>

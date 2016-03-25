@@ -22,17 +22,16 @@ class NavigatorTest extends Component {
 
 
     render() {
-        const initName = 'firstpage';
-        const initComponent = Firstpage;
+
         return (
             <Navigator
-                initialRoute={{name: initName, component: initComponent}}
+                initialRoute={{component: Firstpage}}
                 configureScene={(route)=> {
                 return Navigator.SceneConfigs.VerticalDownSwipeJump;
             }}
                 renderScene={(route, navigator)=> {
                 let Component = route.component;
-                return <Component {...route.params} navigator={navigator}/>
+                return <Component  navigator={navigator}/>
 
             }} />
         );
