@@ -31,7 +31,7 @@ class NavigatorTest extends Component {
             }}
                 renderScene={(route, navigator)=> {
                 let Component = route.component;
-                return <Component  navigator={navigator}/>
+                return <Component {...route.params} navigator={navigator}/>
 
             }} />
         );

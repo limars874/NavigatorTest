@@ -35,6 +35,10 @@ export default class Secondpage extends Component {
         if (navigator) {
             navigator.push({
                 component: Thirdpage,
+                params:{
+                    id:2,
+                    info:'from second page'
+                }
             })
         }
 
@@ -51,6 +55,8 @@ export default class Secondpage extends Component {
                 <TouchableOpacity style={[styles.buttonstyle,{borderColor:'red'}]} onPress={()=>this.gotoThird()}>
                     <Text>go to third</Text>
                 </TouchableOpacity>
+                <Text style={styles.welcome}>the pass value id= {this.props.id}</Text>
+                <Text style={styles.welcome}>the pass value info is " {this.props.info} "</Text>
             </View>
         );
     }
