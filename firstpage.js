@@ -10,6 +10,7 @@ import React, {
     Text,
     View,
     TouchableOpacity,
+    Navigator,
 } from 'react-native';
 
 import Secondpage from './secondpage';
@@ -26,10 +27,7 @@ export default class Firstpage extends Component {
         if(navigator){
             navigator.push({
                 component:Secondpage,
-                params:{
-                    id:1,
-                    info:'from first page'
-                }
+                scene:Navigator.SceneConfigs.FloatFromLeft,
             })
         }
     }

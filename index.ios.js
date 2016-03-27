@@ -27,7 +27,7 @@ class NavigatorTest extends Component {
             <Navigator
                 initialRoute={{component: Firstpage}}
                 configureScene={(route)=> {
-                return Navigator.SceneConfigs.VerticalDownSwipeJump;
+                return route.scene || Navigator.SceneConfigs.FadeAndroid;
             }}
                 renderScene={(route, navigator)=> {
                 let Component = route.component;

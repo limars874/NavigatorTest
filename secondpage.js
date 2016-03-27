@@ -38,7 +38,8 @@ export default class Secondpage extends Component {
                 params:{
                     id:2,
                     info:'from second page'
-                }
+                },
+                scene:Navigator.SceneConfigs.VerticalDownSwipeJump,
             })
         }
 
