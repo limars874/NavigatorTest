@@ -16,18 +16,37 @@ import React, {
 import Secondpage from './secondpage';
 import Thirdpage from './thirdpage';
 
+class GotoNextPageComponent extends Component {
+    render(){
+        return(
+            <TouchableOpacity style={[styles.buttonstyle,{borderColor:'red'}]} onPress={()=>this.props.that.gotoSecond(this.props.scenename)}>
+                <Text>{this.props.scenename} >> secondpage </Text>
+            </TouchableOpacity>
+        )
+    }
+
+}
+
+
+function createGotoNextPage(scenename,key){
+    return <GotoNextPageComponent key={key} scenename={scenename} that={this} />
+}
+
 export default class Firstpage extends Component {
 
     constructor(props){
         super(props);
     }
 
-    gotoSecond(){
+    gotoSecond(scenename){
+        console.log('gotosecond ')
+
+        let scenekey = Object.keys(Navigator.SceneConfigs)[3];
         const { navigator } = this.props;
         if(navigator){
             navigator.push({
                 component:Secondpage,
-                scene:Navigator.SceneConfigs.FloatFromLeft,
+                scene:Navigator.SceneConfigs[scenename],
             })
         }
     }
@@ -47,15 +66,11 @@ export default class Firstpage extends Component {
 
 
     render(){
+        const scenekeys = Object.keys(Navigator.SceneConfigs);
         return (
             <View style={styles.container}>
                 <Text style={styles.center}>first page</Text>
-                <TouchableOpacity style={[styles.buttonstyle,{borderColor:'red'}]} onPress={()=>this.gotoSecond()}>
-                    <Text>go to second</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={[styles.buttonstyle,{borderColor:'red'}]} onPress={()=>this.gotothird()}>
-                    <Text>go to third</Text>
-                </TouchableOpacity>
+                {scenekeys.map(createGotoNextPage.bind(this))}
             </View>
         );
     }
