@@ -17,6 +17,27 @@ import React, {
 import Thirdpage from './thirdpage';
 import Firstpage from './firstpage';
 
+
+class Childone extends Component {
+
+    back(){
+        let nav = this.props.navigator;
+        nav.push({
+            component: Thirdpage,
+        })
+    }
+
+
+    render(){
+        return (
+            <TouchableOpacity style={[styles.buttonstyle,{borderColor:'red'}]} onPress={()=>this.back()}>
+                <Text>child push</Text>
+            </TouchableOpacity>
+
+        )
+    }
+}
+
 export default class Secondpage extends Component {
 
     constructor(props){
@@ -58,6 +79,7 @@ export default class Secondpage extends Component {
                 </TouchableOpacity>
                 <Text style={styles.welcome}>the pass value id= {this.props.id}</Text>
                 <Text style={styles.welcome}>the pass value info is " {this.props.info} "</Text>
+                <Childone navigator={this.props.navigator} />
             </View>
         );
     }
